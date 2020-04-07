@@ -41,6 +41,20 @@
 			    <scope>system</scope>
 			    <systemPath>${basedir}/lib/taobao-sdk-java-auto_1479188381469-20200330.jar</systemPath>
 	    </dependency>
+	    <dependency>
+	    		<groupId>Jade.alipay</groupId>
+			    <artifactId>ali-app4</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${basedir}/lib/alipay-sdk-java20170324180803.jar</systemPath>
+	    </dependency>
+	    <dependency>
+	    		<groupId>Jade.alipay</groupId>
+			    <artifactId>ali-app3</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${basedir}/lib/alipay-sdk-java20170324180803-source.jar</systemPath>
+	    </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
