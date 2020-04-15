@@ -27,7 +27,7 @@ public class Alipayclient {
 	
 
     //商户订单号，商户网站订单系统中唯一订单号，必填
-    String out_trade_no = "20181037";
+   
     //付款金额，必填
     String total_amount = "999";
     //订单名称，必填
@@ -41,13 +41,15 @@ public class Alipayclient {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, headers= {},path="/api/getPaymentLink")
-	public String getPaymentLink(@RequestParam(required = true, name="amount") String amount) {
+	public String getPaymentLink(@RequestParam(required = true, name="amount") String amount, @RequestParam(required = true, name="tradeno") String tradeno) {
 		this.alipayRequest = new AlipayTradePagePayRequest();
 		this.alipayRequest.setReturnUrl(AlipayConfig.return_url);
         this.alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 		 //商户订单号，商户网站订单系统中唯一订单号，必填
-        String out_trade_no = "20121037";
+        String out_trade_no = tradeno;
         //付款金额，必填
+        System.out.println(tradeno);
+        System.out.println(amount);
         String total_amount = amount;
         //订单名称，必填
         String subject = "支付宝测试";
@@ -65,7 +67,6 @@ public class Alipayclient {
         String result;
         try {
             result = alipayClient.pageExecute(alipayRequest).getBody();
-            System.out.println(result);
             requestPage = result;
         } catch (AlipayApiException e) {
             e.printStackTrace();
